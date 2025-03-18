@@ -1,0 +1,20 @@
+{% extends 'app/base.html' %}
+
+{% block title %}Listado de productos{% endblock %}
+
+{% block content %}
+    <h1 class="display-4">Lista de productos</h1>
+    <a href="{% url 'item_create' %}" class="btn btn-primary mt-2">Añadir Producto</a>
+    <div class="row">
+        {% for item in items %}
+            <div class="col-md-3 mb-4">
+                <div class="card mb-4 mt-4 shadow-sm">
+                    <div class="card-header">
+                        <img src="{{ item.image.url }}" alt="{{ item.name }}" class="img-fluid img-thumbnail">
+                        <h4 class="my-0 font-weight-normal text-center"><a href="{% url 'item_detail' item.pk %}" style="text-decoration: none;" class="text-dark">{{ item.name }}</a></h4>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'app/base.html' %}
+
+{% block title %}Detalles del producto{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">{{ item.name }}</h5>
+                    <img src="{{ item.image.url }}" alt="{{ item.name }}" class="img-fluid" style="max-width: 300px; max-height: 300px;">
+                    <p class="card-text">Precio: ${{ item.price }}</p>
+                    <p class="card-text">Descripción: {{ item.description }}</p>
+                    <p class="card-text">Añadido el dia: {{ item.created_at }}</p>
+                    <div class="d-flex justify-content-between">
+                        <a href="{% url 'item_update' item.pk %}" class="btn btn-primary">Actualizar</a>
+                        <a href="{% url 'item_delete' item.pk %}" class="btn btn-danger">Eliminar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

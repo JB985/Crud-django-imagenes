@@ -1,0 +1,15 @@
+{% extends 'app/base.html' %}
+
+{% block title %}Fromulario del producto{% endblock %}
+
+{% block content %}
+<h1>{% if form.instance.pk %}Editar producto{% else %}Crear producto{% endif %}</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-group">
+        {{ form.as_p }}
+    </div>
+    <button type="submit" class="btn btn-success">{% if form.instance.pk %}Actualizar{% else %}Guardar{% endif %}</button>
+    <a href="{% url 'item_list' %}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}
