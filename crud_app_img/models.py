@@ -21,11 +21,3 @@ class Item(models.Model):
     def delete(self, *args, **kwargs):
         self.image.delete()
         super().delete(*args, **kwargs)
-    
-    def eliminar_imagen_antigua(self, *args, **kwargs):
-        if self.id:
-            imagen_antigua = Item.objects.filter(id=self.id).first()
-            if imagen_antigua and imagen_antigua.image:
-                if self.image != imagen_antigua.image:
-                    imagen_antigua.image.delete(save=False)
-                super().save(*args, **kwargs)
