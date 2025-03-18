@@ -18,6 +18,16 @@ class Item(models.Model):
     def __str__(self):
         return self.name
     
+    def save(self, *args, **kwargs):
+        if self.pk:
+            try:
+                old_item = Item.objects.get(pk=self.pk)
+                if old_item.image != self.image:
+                    old_item.image.delete(save=False)
+            except Item.DoesNotExist:
+                pass 
+        super().save(*args, **kwargs)
+    
     def delete(self, *args, **kwargs):
         self.image.delete()
         super().delete(*args, **kwargs)
