@@ -34,7 +34,7 @@ class Item(models.Model):
         super().delete(*args, **kwargs)
 
 class Rol(models.Model):
-    code = models.CharField(max_length=255, blank=True)
+    code = models.CharField(max_length=255, blank=True, verbose_name='Codigo')
     name = models.CharField(max_length=255, verbose_name='Nombre')
 
 class User(AbstractUser):
