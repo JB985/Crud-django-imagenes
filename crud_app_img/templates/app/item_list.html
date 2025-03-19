@@ -6,7 +6,7 @@
     <h1 class="display-4">Lista de productos</h1>
     <a href="{% url 'item_create' %}" class="btn btn-primary mt-2">Añadir Producto</a>
     <form class="d-flex mt-3 mb-3" role="search" method="GET">
-        <input class="form-control me-2" type="search" placeholder="Buscar producto..." aria-label="Search" name="search">
+        <input class="form-control me-2" type="search" placeholder="Buscar producto..." aria-label="Search" name="search" value="{{ request.GET.search }}">
         <button class="btn btn-primary" type="submit">Buscar</button>
     </form>
     <div class="row">
@@ -23,9 +23,9 @@
         {% endfor %}
         {% else %}
             {% if query %}
-                <p>No hay resultados para "{{ query }}"</p>
+                <h4 class="text-center">No se encontraron productos con el nombre "{{ query }}". Pruebe con otros términos.</h4>
             {% else %}
-                <p>No hay productos en la lista.</p>
+                <h4 class="text-center">No hay productos en la lista.</h4>
             {% endif %}
         {% endif %}
     </div>
