@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'crud_app_img.apps.CrudAppImgConfig',
     'crud_app_img'
 ]
 
