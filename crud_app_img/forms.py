@@ -9,5 +9,5 @@ class ItemForm(forms.ModelForm):
             'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ingrese el nombre'}),
             'description': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Ingrese la descripción'}),
             'price': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Ingrese el precio'}),
-            'image': forms.FileInput(attrs={'class': 'form-control'}),
+            'image': forms.FileInput(attrs={'class': 'form-control', 'accept': '.png, .jpg, .jpeg'}),
         }

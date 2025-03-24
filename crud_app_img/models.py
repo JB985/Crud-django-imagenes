@@ -14,7 +14,7 @@ class Item(models.Model):
     description = models.TextField(verbose_name='Descripción')
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Precio')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Añadido en')
-    image = models.ImageField(upload_to='productos/img/', verbose_name='Imagen', validators=[validar_extencion])
+    image = models.ImageField(upload_to='productos/img/', verbose_name='Imagen del producto', validators=[validar_extencion])
     
     def __str__(self):
         return self.name
